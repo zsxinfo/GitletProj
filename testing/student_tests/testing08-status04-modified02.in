@@ -1,0 +1,27 @@
+# test 8th command: status; phase 4: testing modifications not staged for commit 2
+I testing08-status03-modified01.in
+> add h.txt
+<<<
+> add i.txt
+<<<
++ h.txt notwug.txt
+- i.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+h.txt
+i.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+f.txt (modified)
+g.txt (deleted)
+h.txt (modified)
+i.txt (deleted)
+
+=== Untracked Files ===
+
+<<<

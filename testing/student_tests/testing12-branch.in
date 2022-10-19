@@ -1,0 +1,77 @@
+# Check that we can check out a previous version.
+I testing10-checkoutFileFromGivenCommit10.in
+> branch master
+A branch with that name already exists.
+<<<
+> branch newBranch1
+<<<
+> checkout newBranch1
+<<<
++ f.txt wug.txt
+> add f.txt
+<<<
+> commit "add f.txt"
+<<<
+> log
+===
+${COMMIT_HEAD}
+add f.txt
+
+===
+${COMMIT_HEAD}
+version 2 of wug.txt
+
+===
+${COMMIT_HEAD}
+version 1 of wug.txt
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+> checkout master
+<<<
++ g.txt wug.txt
+> add g.txt
+<<<
+> commit "add g.txt"
+<<<
+> log
+===
+${COMMIT_HEAD}
+add g.txt
+
+===
+${COMMIT_HEAD}
+version 2 of wug.txt
+
+===
+${COMMIT_HEAD}
+version 1 of wug.txt
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+> checkout newBranch1
+<<<
+> log
+===
+${COMMIT_HEAD}
+add f.txt
+
+===
+${COMMIT_HEAD}
+version 2 of wug.txt
+
+===
+${COMMIT_HEAD}
+version 1 of wug.txt
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*

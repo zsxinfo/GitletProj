@@ -1,0 +1,35 @@
+# test 8th command: status; phase 3: testing modifications not staged for commit
+D SHA "([a-f0-9]+)[ \t]*\n"
+D ARBLINE "[^\n]*(?=\n|\Z)"
+> init
+<<<
++ f.txt wug.txt
++ g.txt wug.txt
++ h.txt wug.txt
++ i.txt wug.txt
+> add f.txt
+<<<
+> add g.txt
+<<<
+> commit "add f and g."
+<<<
+- f.txt
++ f.txt notwug.txt
+- g.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+f.txt (modified)
+g.txt (deleted)
+
+=== Untracked Files ===
+h.txt
+i.txt
+
+<<<

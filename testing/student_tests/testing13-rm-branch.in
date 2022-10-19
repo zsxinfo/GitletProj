@@ -1,0 +1,17 @@
+# test rm-branch
+I testing12-branch.in
+> branch newBranch2
+<<<
+> branch newBranch3
+<<<
+> rm-branch newBranch10
+A branch with that name does not exist.
+<<<
+> rm-branch newBranch1
+Can not remove current branch.
+<<<
+> rm-branch newBranch2
+<<<
+> checkout newBranch2
+No such branch exist.
+<<<

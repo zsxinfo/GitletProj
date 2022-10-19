@@ -1,0 +1,76 @@
+# test 8th command: status; phase 2: testing staged files and removed files
+> init
+<<<
++ f.txt wug.txt
++ g.txt wug.txt
++ h.txt wug.txt
+> add f.txt
+<<<
+> add g.txt
+<<<
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+f.txt
+g.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+h.txt
+
+<<<
+> commit "add f.txt and g.txt"
+<<<
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+h.txt
+
+<<<
+> rm f.txt
+<<<
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+f.txt
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+h.txt
+
+<<<
+> add h.txt
+<<<
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+h.txt
+
+=== Removed Files ===
+f.txt
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<

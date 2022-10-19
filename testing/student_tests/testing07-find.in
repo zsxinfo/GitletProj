@@ -1,0 +1,28 @@
+# test 7th command: find
+# A status log header RE.  Captures the commit id in its sole group.
+# D COMMIT_HEAD "commit ([a-f0-9]+)[ \t]*\n(?:Merge:\s+[0-9a-f]{7}\s+[0-9a-f]{7}[ ]*\n)?${DATE}"
+D SHA "([a-f0-9]+)[ \t]*\n"
+> init
+<<<
++ f.txt wug.txt
++ g.txt wug.txt
+> add g.txt
+<<<
+> commit "add g.txt"
+<<<
+> find "hhh"
+Found no commit with that message.
+<<<
+> find "add g.txt"
+${SHA}
+<<<*
+> add f.txt
+<<<
+> commit "add g.txt"
+<<<
+> find "add g.txt"
+${SHA}${SHA}
+<<<*
+> find "initial commit"
+${SHA}
+<<<*

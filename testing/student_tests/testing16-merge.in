@@ -1,0 +1,122 @@
+# testing merge
+D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
++ f1.txt wug.txt
++ f2.txt wug.txt
++ f3a.txt wug.txt
++ f3b.txt wug.txt
++ f6.txt wug.txt
++ f7.txt wug.txt
++ f3c.txt wug.txt
++ f3d.txt wug.txt
+> init
+<<<
+> add f1.txt
+<<<
+> add f2.txt
+<<<
+> add f3a.txt
+<<<
+> add f3b.txt
+<<<
+> add f3c.txt
+<<<
+> add f3d.txt
+<<<
+> add f6.txt
+<<<
+> add f7.txt
+<<<
+> commit "split split"
+<<<
+> branch other
+<<<
+> branch head
+<<<
+> checkout other
+<<<
++ f1.txt airbus.txt
++ f3a.txt notwug.txt
++ f3b.txt airbus.txt
++ f3c.txt airbus.txt
++ f5.txt wug.txt
+> add f1.txt
+<<<
+> add f3a.txt
+<<<
+> add f3b.txt
+<<<
+> add f3c.txt
+<<<
+> rm f3d.txt
+<<<
+> add f5.txt
+<<<
+> rm f6.txt
+<<<
+> commit "other: modified f1 f3a f3b f3c. add f5. rm f6 f3d."
+<<<
+> log
+${ARBLINES}
+<<<*
+> status
+${ARBLINES}
+<<<*
+> checkout head
+<<<
++ f2.txt boeing.txt
++ f3a.txt notwug.txt
++ f3b.txt boeing.txt
++ f4.txt wug.txt
++ f3d.txt boeing.txt
+> add f2.txt
+<<<
+> add f3a.txt
+<<<
+> add f3b.txt
+<<<
+> add f4.txt
+<<<
+> add f3d.txt
+<<<
+> rm f3c.txt
+<<<
+> rm f7.txt
+<<<
+> commit "head: modified f2 f3a f3b f3d. add f4. rm f3c f7."
+<<<
+> merge other
+<<<
+= f1.txt airbus.txt
+= f2.txt boeing.txt
+= f3a.txt notwug.txt
+# f3b.txt should be in conflict <<<<HEAD:boeing====airbus<<<<
+# f3c.txt should be in conflict <<<<HEAD:====airbus<<<<
+# f3d.txt should be in conflict <<<<HEAD:boeing====<<<<
+= f4.txt wug.txt
+= f5.txt wug.txt
+# f6.txt should be gone.
+# f7.txt should be gone.
+> log
+${ARBLINES}
+<<<*
+> status
+=== Branches ===
+*head
+master
+other
+
+=== Staged Files ===
+f1.txt
+f3b.txt
+f3c.txt
+f3d.txt
+f5.txt
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+

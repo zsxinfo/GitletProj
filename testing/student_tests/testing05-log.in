@@ -1,0 +1,45 @@
+# testing 5th and 6th command : log and global-log
+D DATE "Date: \w\w\w \w\w\w \d\d \d\d:\d\d:\d\d \w\w\w \d\d\d\d"
+D COMMIT_HEAD "commit ([a-f0-9]+)[ \t]*\n${DATE}"
+# An arbitrary line of text (works even with ?s)
+D ARBLINE "[^\n]*(?=\n|\Z)"
+> init
+<<<
++ f.txt wug.txt
+> add f.txt
+<<<
+> commit "add f.txt"
+<<<
++ g.txt notwug.txt
+> add g.txt
+<<<
+> commit "add g.txt"
+<<<
+> log
+===
+${COMMIT_HEAD}
+add g.txt
+
+===
+${COMMIT_HEAD}
+add f.txt
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+> global-log
+===
+${COMMIT_HEAD}
+${ARBLINE}
+
+===
+${COMMIT_HEAD}
+${ARBLINE}
+
+===
+${COMMIT_HEAD}
+${ARBLINE}
+
+<<<*

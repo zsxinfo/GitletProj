@@ -1,0 +1,39 @@
+# test first 4 methods : init add commit rm
+> init
+<<<
++ f.txt wug.txt
+> add f.txt
+<<<
+>init
+A Gitlet version-control system already exists in the current directory.
+<<<
+> add g.txt
+File does not exist.
+<<<
+> commit ""
+Please enter a commit message.
+<<<
+> commit "add f.txt"
+<<<
+> commit "test no change"
+No changes added to the commit.
+<<<
+> rm g.txt
+No reason to remove the file.
+<<<
++ g.txt notwug.txt
+> add g.txt
+<<<
+> rm g.txt
+<<<
+> commit "test rm no change"
+No changes added to the commit.
+<<<
+> add g.txt
+<<<
+> commit "add g.txt"
+<<<
+> rm g.txt
+<<<
+
+

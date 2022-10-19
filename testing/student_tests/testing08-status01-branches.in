@@ -1,0 +1,35 @@
+# test 8th command: status; phase 1: testing branches
+> init
+<<<
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
++ f.txt wug.txt
++ g.txt wug.txt
++ h.txt wug.txt
+> status
+=== Branches ===
+*master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+f.txt
+g.txt
+h.txt
+
+<<<
